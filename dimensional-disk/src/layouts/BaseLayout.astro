@@ -1,0 +1,30 @@
+---
+import { Astro } from 'astro';
+import type { Props } from 'astro';
+
+interface LayoutProps {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title = 'lukaspitrik.cz', description = '', image } = Astro.props as LayoutProps;
+---
+
+<!doctype html>
+<html lang="en" class="font-sans antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    <title>{title}</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/styles/output.css" />
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <slot />
+  </body>
+</html>
