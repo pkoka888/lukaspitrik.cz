@@ -2,19 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import { getCollection } from 'astro:content';
-
-const pages = await getCollection('pages');
+import Services from '../components/Services.astro';
+import Gallery from '../components/Gallery.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="lukaspitrik.cz" description="Personal site for Lukáš Pitrik">
+<BaseLayout 
+  title="STAVEBNÍ PRÁCE Lukáš Pitřík | Teplice | Rekonstrukce" 
+  description="Rodinná firma zaměřená na stavební práce v oblasti Severních Čech. Sádrokarton, obklady, beton, kompletní rekonstrukce v Teplicích."
+>
   <Nav />
-  <Hero />
-  {pages.map(page => (
-    <Section title={page.data.title}>
-      {page.body}
-    </Section>
-  ))}
+  <main>
+    <Hero />
+    <Services />
+    <Gallery />
+    <Contact />
+  </main>
+  <Footer />
 </BaseLayout>
-

@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const references = [
+  {
+    quote: "Pan Pitřík nám byl vybrán majitelem zařízení - společností AMBEAT development a.s. pro přestavbu a vybudování dvou nadstandardních pokojů. Celá přestavba probíhala podle nastaveného harmonogramu prací. V průběhu prací jsme se mohli domluvit i na některých neplánovaných stavebních úpravách, což nám velmi pomohlo. Po celou dobu nám vycházel p. Pitřík vstříc, tak abychom nemuseli omezovat provoz našeho zařízení (rehabilitační a zdravotní péče), kdy na požádání naplánoval stavební práce v odpoledních hodinách anebo o víkendech.",
+    author: "Bc. Blanka Liebigová",
+    position: "Vrchní sestra",
+    company: "AHC Rehabilitační centrum Meziboří s.r.o.",
+    date: "květen 2023"
+  }
+];
+
+const stats = [
+  { value: "10+", label: "let zkušeností" },
+  { value: "500+", label: "realizací" },
+  { value: "100%", label: "spokojenost" },
+  { value: "24h", label: "reakce na poptávku" },
+];
+---
+
+<BaseLayout 
+  title="Reference | STAVEBNÍ PRÁCE Lukáš Pitřík" 
+  description="Reference od našich klientů - rekonstrukce, stavební práce a kuchyně na míru. Jsme hrdí na každou spokojenou zpětnou vazbu."
+>
+  <Nav />
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-1 bg-orange-500/20 text-orange-400 text-sm font-medium rounded-full mb-4">REFERENCE</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Co říkají naši klienti</h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+          Spokojenost našich klientů je pro nás tou největší odměnou. Přečtěte si reference od firem i soukromých osob.
+        </p>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 bg-orange-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map(stat => (
+            <div>
+              <div class="text-4xl md:text-5xl font-bold text-white">{stat.value}</div>
+              <div class="text-white/80">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8">
+          {references.map(ref => (
+            <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 shadow-xl">
+              <svg class="w-12 h-12 text-orange-500 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+              <blockquote class="text-lg md:text-xl text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                {ref.quote}
+              </blockquote>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center">
+                  <span class="text-xl font-bold text-orange-500">{ref.author.charAt(0)}</span>
+                </div>
+                <div>
+                  <div class="font-semibold text-slate-800 dark:text-white">{ref.author}</div>
+                  <div class="text-sm text-slate-500">{ref.position}, {ref.company}</div>
+                  <div class="text-sm text-orange-500">{ref.date}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-4">PROČ MY</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">Proč zvolit nás</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Záruka kvality</h3>
+            <p class="text-slate-600 dark:text-slate-400">Na veškeré práce poskytujeme záruku. Pracujeme s ověřenými materiály od renomovaných výrobců.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Rychlá realizace</h3>
+            <p class="text-slate-600 dark:text-slate-400">Dodržujeme domluvené termíny. Víme, že čas je pro naše klienty důležitý.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">Osobní přístup</h3>
+            <p class="text-slate-600 dark:text-slate-400">Každý projekt je unikát. Nasloucháme vašim přáním a navrhujeme řešení na míru.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-slate-900 to-slate-800">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Budete další spokojený klient?</h2>
+        <p class="text-xl text-slate-300 mb-8">
+          Kontaktujte nás a přesvědčte se o kvalitě naší práce.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/kontakty" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
+            <span>Kontaktovat</span>
+          </a>
+          <a href="/galerie" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors border border-white/20">
+            <span>Zobrazit galerii</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

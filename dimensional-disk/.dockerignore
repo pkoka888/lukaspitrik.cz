@@ -1,0 +1,49 @@
+# .dockerignore
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Git
+.git/
+.gitignore
+
+# Environment files
+.env
+.env.*
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# Tests
+coverage/
+tests/
+e2e/
+*.test.ts
+*.spec.ts
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log

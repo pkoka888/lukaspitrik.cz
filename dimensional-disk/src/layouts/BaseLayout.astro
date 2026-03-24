@@ -1,6 +1,5 @@
 ---
-import { Astro } from 'astro';
-import type { Props } from 'astro';
+import '../styles/input.css';
 
 interface LayoutProps {
   title?: string;
@@ -8,11 +7,11 @@ interface LayoutProps {
   image?: string;
 }
 
-const { title = 'lukaspitrik.cz', description = '', image } = Astro.props as LayoutProps;
+const { title = 'STAVEBNÍ PRÁCE Lukáš Pitřík | Teplice', description = 'Rodinná firma zaměřená na stavební práce v oblasti Severních Čech. Sádrokarton, obklady, beton, kompletní rekonstrukce.', image } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
-<html lang="en" class="font-sans antialiased">
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,10 +20,9 @@ const { title = 'lukaspitrik.cz', description = '', image } = Astro.props as Lay
     <meta property="og:description" content={description} />
     {image && <meta property="og:image" content={image} />}
     <title>{title}</title>
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="/src/styles/output.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors">
     <slot />
   </body>
 </html>

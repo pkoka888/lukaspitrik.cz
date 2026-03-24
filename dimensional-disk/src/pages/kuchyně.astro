@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const kitchens = [
+  {
+    title: 'Moderní šedá kuchyň se dřevem',
+    description: 'Kombinace šedé barvy a přírodního dřeva je v moderním designu kuchyní velmi oblíbená. Tento styl působí elegantně, minimalisticky a zároveň přidává prostoru teplý a útulný nádech díky dřevěným prvkům.',
+    image: 'https://static.wixstatic.com/media/8dd9cc_c5c3214c89394b82866522770dc7087e~mv2.jpg'
+  },
+  {
+    title: 'Moderní bílá kuchyň se dřevem',
+    description: 'Kombinace bílé barvy a přírodního dřeva patří k nejoblíbenějším trendům v moderním designu kuchyní. Bílá dodává interiéru pocit čistoty, světlosti a vzdušnosti, zatímco dřevěné prvky vnášejí teplo a útulnost.',
+    image: 'https://static.wixstatic.com/media/8dd9cc_f02131d288524765a2cd3f66d1b65ae2~mv2.jpg'
+  },
+  {
+    title: 'Šedá kuchyň v imitaci betonu se dřevem',
+    description: 'Kombinace šedé v imitaci betonu s přírodními dřevěnými prvky je jedním z nejpopulárnějších trendů v moderním interiérovém designu. Tento styl přináší do kuchyně surový industriální vzhled.',
+    image: 'https://static.wixstatic.com/media/8dd9cc_2dd8ea71e15c4c5dbdced829f78868fc~mv2.jpg'
+  },
+  {
+    title: 'Šedá kuchyň v imitaci betonu s bílou',
+    description: 'Kombinace šedé v imitaci betonu s bílými prvky vytváří nadčasový, čistý a elegantní design s lehkým industriálním nádechem. Beton dodává prostoru surový, moderní vzhled.',
+    image: 'https://static.wixstatic.com/media/8dd9cc_041561ef84834061a175b329eca6e15a~mv2.jpg'
+  }
+];
+
+const benefits = [
+  { icon: '📐', title: 'Profesionální zaměření', description: 'Náš zkušený technik přijede až k vám, provede zaměření a pomůže s výběrem.' },
+  { icon: '🎨', title: 'Široký výběr materiálů', description: 'Vzorníky materiálů - široký výběr dekorů a povrchů od ověřených výrobců.' },
+  { icon: '🛠️', title: 'Truhlářská dílnа', description: 'Spolupráce s truhlářskou dílnou - precizní řemeslné zpracování.' },
+  { icon: '✨', title: 'Funkčnost & design', description: 'Kuchyně, která nejen skvěle vypadá, ale i perfektně slouží.' }
+];
+---
+
+<BaseLayout 
+  title="Kuchyně na míru | STAVEBNÍ PRÁCE Lukáš Pitřík" 
+  description="Kuchyně na míru - moderní kuchyňské linky přesně podle vašich představ. Profesionální návrh, zaměření a montáž v Teplicích."
+>
+  <Nav />
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="relative py-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80" alt="Kuchyň" class="w-full h-full object-cover" />
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-1 bg-orange-500/20 text-orange-400 text-sm font-medium rounded-full mb-4">🔥 NOVINKA</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Kuchyně na míru</h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+          Hledáte kuchyň, která bude dokonale ladit s vaším interiérem? Nabízíme zakázkovou výrobu kuchyňských linek, kde si můžete vybrat materiály, barvy i detaily přesně podle svého vkusu.
+        </p>
+        <a href="/kontakty" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
+          <span>Objednat konzultaci</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="py-16 bg-orange-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
+            <h3 class="text-lg font-bold text-white mb-2">Zaměření</h3>
+            <p class="text-white/80">Přijedeme k vám, zaměříme prostor a proběhne konzultace.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
+            <h3 class="text-lg font-bold text-white mb-2">Návrh</h3>
+            <p class="text-white/80">Navrhneme kuchyň včetně 3D vizualizace a nacenění.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-12 h-12 bg-white text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
+            <h3 class="text-lg font-bold text-white mb-2">Montáž</h3>
+            <p class="text-white/80">Kuchyň kompletně smontujeme a předáme k užívání.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">Proč naše kuchyně?</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {benefits.map(benefit => (
+            <div class="text-center p-6">
+              <div class="text-4xl mb-4">{benefit.icon}</div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">{benefit.title}</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Kitchen Gallery -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="inline-block px-4 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-medium rounded-full mb-4">NAŠE REALIZACE</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Kuchyně, které jsme realizovali</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {kitchens.map(kitchen => (
+            <div class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div class="aspect-video overflow-hidden">
+                <img src={kitchen.image} alt={kitchen.title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-2">{kitchen.title}</h3>
+                <p class="text-slate-600 dark:text-slate-400">{kitchen.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-orange-500 to-orange-600">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Plánujete novou kuchyň?</h2>
+        <p class="text-xl text-white/90 mb-8">
+          Nechte to na nás! Kontaktujte nás a společně navrhneme vaši vysněnou kuchyň.
+        </p>
+        <a href="/kontakty" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+          <span>Objednat konzultaci</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

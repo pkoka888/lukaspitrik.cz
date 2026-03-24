@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const tilesPartners = [
+  {
+    name: 'Tiles Studio Jičín',
+    description: 'Profesionální koupelnové studio specializující se na prodej kvalitních obkladů a dlažeb.',
+    website: 'https://top-tiles.cz/',
+    eshop: 'https://www.koupelny-dlazba.cz/',
+    email: 'info@top-tiles.cz',
+    benefits: [
+      '3D návrhy - možnost vidět, jak budou obklady vypadat v prostoru ještě před realizací',
+      'Odborné poradenství - pomoc s výběrem správného materiálu, barev a technických parametrů',
+      'Profesionální zaměření prostoru - přesné měření pro eliminaci chyb',
+      'Výběr - spolupráce přímo s výrobci za skvělé ceny'
+    ]
+  }
+];
+
+const features = [
+  { icon: '🎨', title: '3D návrhy', description: 'Vidíte výsledek ještě před realizací' },
+  { icon: '📐', title: 'Odborné poradenství', description: 'Pomůžeme vybrat správný materiál' },
+  { icon: '📏', title: 'Profesionální zaměření', description: 'Přesné měření pro dokonalý výsledek' },
+  { icon: '💰', title: 'Skvělé ceny', description: 'Spolupráce přímo s výrobci' }
+];
+---
+
+<BaseLayout 
+  title="Obklady a dlažba | STAVEBNÍ PRÁCE Lukáš Pitřík" 
+  description="Luxusní keramické obklady a dlažba. Spolupráce s Tiles Studio Jičín - 3D návrhy, odborné poradenství a profesionální montáž."
+>
+  <Nav />
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="relative py-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80" alt="Obklady" class="w-full h-full object-cover" />
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Obklady & Dlažba</h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+          Hledáte luxusní keramické obklady a dlažbu přímo od výrobce? Díky spolupráci s Tiles Studio Jičín vám nabízíme kompletní servis.
+        </p>
+        <a href="/kontakty" class="inline-flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors">
+          <span>Objednat konzultaci</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Partnership Banner -->
+    <section class="py-12 bg-gradient-to-r from-orange-500 to-orange-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-1 bg-white/20 text-white text-sm font-medium rounded-full mb-4">PARTNERSTVÍ</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Tiles Studio Jičín</h2>
+        <p class="text-xl text-white/90 max-w-3xl mx-auto">
+          Specializujeme se na prodej kvalitních obkladů a dlažeb pro široké spektrum projektů – od soukromých koupelen po velké komerční zakázky.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map(feature => (
+            <div class="text-center p-6">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">{feature.title}</h3>
+              <p class="text-slate-600 dark:text-slate-400 text-sm">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits List -->
+    <section class="py-20 bg-slate-50 dark:bg-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4">Co vám nabízíme</h2>
+        </div>
+        <div class="grid gap-4">
+          {tilesPartners[0].benefits.map(benefit => (
+            <div class="flex items-start gap-4 p-6 bg-white dark:bg-slate-900 rounded-xl">
+              <div class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p class="text-slate-700 dark:text-slate-300">{benefit}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="inline-block px-6 py-3 bg-orange-500 rounded-full text-white font-bold text-xl mb-6">
+          🎉 Speciální nabídka
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Kód "PITRIK"</h2>
+        <p class="text-xl text-slate-300 mb-8">
+          Pokud při objednávce použijete kód "PITRIK", čeká na vás speciální nabídka! Jaké výhody přesně získáte? To vám rádi prozradí v Tiles Studio Jičín.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://top-tiles.cz/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-slate-800 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+            <span>Návštívit web</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="https://www.koupelny-dlazba.cz/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors border border-white/20">
+            <span>E-shop</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-20 bg-orange-500">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Nezávazná poptávka</h2>
+        <p class="text-xl text-white/90 mb-8">
+          Chcete obklady nebo dlažbu? Ozvěte se nám a rádi vám poradíme s výběrem.
+        </p>
+        <a href="/kontakty" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+          <span>Kontaktovat</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

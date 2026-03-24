@@ -1,26 +1,94 @@
 ---
-import { useEffect } from 'astro/runtime';
+const navLinks = [
+  { name: 'Úvod', href: '/' },
+  { name: 'Galerie', href: '/galerie' },
+  { name: 'Reference', href: '/reference' },
+  { name: 'Služby', href: '/sluzby' },
+  { name: 'Kontakty', href: '/kontakty' },
+];
 ---
-<nav class="sticky top-0 bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between items-center">
-  <a href="/" class="text-xl font-bold text-gray-900 dark:text-gray-100">lukaspitrik.cz</a>
-  <button id="theme-toggle" class="p-2 rounded bg-gray-200 dark:bg-gray-700">
-    🌙
-  </button>
-</nav>
 
-<script client:load>
-  const btn = document.getElementById('theme-toggle');
-  const darkClass = 'dark';
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const current = localStorage.getItem('theme');
-  if (current) {
-    document.documentElement.classList.toggle(darkClass, current === 'dark');
-  } else if (prefersDark.matches) {
-    document.documentElement.classList.add(darkClass);
-    localStorage.setItem('theme', 'dark');
-  }
-  btn.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.toggle(darkClass);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm shadow-sm">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2" aria-label="Home">
+        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </div>
+        <span class="font-bold text-lg hidden sm:block">STAVEBNÍ PRÁCE</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a href={link.href} class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 transition-colors">
+            {link.name}
+          </a>
+        ))}
+        <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Přepnout tmavý režim">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800" aria-label="Otevřít menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col gap-2">
+        {navLinks.map(link => (
+          <a href={link.href} class="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+            {link.name}
+          </a>
+        ))}
+        <button id="theme-toggle-mobile" class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" aria-label="Přepnout tmavý režim">
+  <span>🌙</span>
+  <span>Tmavý režim</span>
+</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
   });
+
+  // Close mobile menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Shared theme toggle function
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  };
+
+  // Theme toggle (desktop)
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle?.addEventListener('click', toggleTheme);
+
+  // Theme toggle (mobile)
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  themeToggleMobile?.addEventListener('click', toggleTheme);
 </script>

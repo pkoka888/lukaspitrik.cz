@@ -3,6 +3,8 @@ interface SectionProps {
   title: string;
   children: any;
 }
+
+const props = Astro.props as SectionProps;
 ---
 <section class="my-8 max-w-4xl mx-auto px-4">
   <h2 class="text-3xl font-semibold mb-4">{props.title}</h2>

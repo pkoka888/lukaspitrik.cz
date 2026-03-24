@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const galleryProjects = [
+  {
+    title: 'Koupelny v RD',
+    description: 'Rekonstrukce dvou menších koupelen v rodinném domě s kompletním předěláním rozvodů vody, topení a kanalizace.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_b34201b611b0439b998d121241aea18b~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_07f37274e2a54c9cad08e7a46bc6b038~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_ed572cc3605445cead31e33b50e9d1a3~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_e2d5a03121b346adbf8902afa387c9ce~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_ed096fe0568146e8b8e8d5b0aa4727f4~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_c61f2e3d46d94a7e99a5f853e70a4eee~mv2.jpg',
+    ]
+  },
+  {
+    title: 'Kamenný obklad',
+    description: 'Obložení fasády na horské chatě přírodním kamenem včetně nové klempířiny.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_ed063af3d4fb4116ba20f800b86e7d0d~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_72e5242ed66d4038b032963bb9879770~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_3f749c96163444849837d3ca206e1516~mv2.jpg',
+    ]
+  },
+  {
+    title: 'Rekonstrukce kamenného schodiště',
+    description: 'Jedna velice zajímavá zakázka, kde si zákazník přál zachovat stávající vzhled zahrady.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_84e9e461bf9f4720ad4feb09a8ff70cc~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_39c3fcd9e26d4adca83da0c761c014b7~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_091d8846242b467e8cceec5f4e7e171e~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_d9d10cd3023d4201af2c2def979deb51~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_8a13c7b586034e6ea3e79649dfac8e48~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_991c1fb421244ef4bae7ea5055321dc9~mv2.jpg',
+    ]
+  },
+  {
+    title: 'Rekonstrukce SPA',
+    description: 'Kompletní výměna SPA, včetně úpravy dispozic, přípravy pro technologii a nového obkladu.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_033d10ce238e4cca8eda9156a7b92bbd~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_310875254498453793c92f1d7efe09b1~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_58c925850fa14416872ee5fb72d009e1~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_56449c2ee56644d9900e2c0dffc8890d~mv2.jpg',
+    ]
+  },
+  {
+    title: 'Pergola',
+    description: 'Pergola zhotovena z kvalitních, hoblovaných a namořených KVH hranolů v rozměru 100x100mm.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_280823420b7149d88ffb43cd2474bf9e~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_c3c837b6125f4995b61caafb38046c59~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_384f90e03fb146659999046e8079f10a~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_b5ff82f933ae42ce9ecbe932382e4023~mv2.jpg',
+    ]
+  },
+  {
+    title: 'Venkovní dlažba',
+    description: 'Pokládka venkovní dlažby, včetně podkladu a obrubníků po obvodu RD.',
+    images: [
+      'https://static.wixstatic.com/media/8dd9cc_d56b3ae1be874f349090bf03e137e36f~mv2.jpg',
+      'https://static.wixstatic.com/media/8dd9cc_3800de317fe7412ab28aa8280bc2321d~mv2.jpg',
+    ]
+  }
+];
+---
+
+<BaseLayout 
+  title="Galerie | STAVEBNÍ PRÁCE Lukáš Pitřík" 
+  description="Prohlédněte si naše realizace - koupelny, kuchyně, obklady, pergolu a další stavební práce v Teplicích."
+>
+  <Nav />
+  <main class="pt-16">
+    <!-- Hero -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-1 bg-orange-500/20 text-orange-400 text-sm font-medium rounded-full mb-4">NAŠE PRÁCE</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Galerie realizací</h1>
+        <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+          Podívejte se na naše dokončené projekty. Každá zakázka je pro nás příležitost předvést profesionalitu a řemeslnou zručnost.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gallery Projects -->
+    {galleryProjects.map((project, idx) => (
+      <section class="py-16 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-2">{project.title}</h2>
+            <p class="text-slate-600 dark:text-slate-400">{project.description}</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {project.images.map((img, imgIdx) => (
+              <div class="group relative overflow-hidden rounded-xl aspect-square">
+                <img 
+                  src={img} 
+                  alt={`${project.title} - ${imgIdx + 1}`}
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  loading={imgIdx < 4 ? "eager" : "lazy"}
+                />
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300">
+                  <button 
+                    class="absolute bottom-4 left-4 right-4 py-2 bg-white/90 text-slate-800 font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                    data-fslightbox={`gallery-${idx}`}
+                    data-index={imgIdx}
+                  >
+                    Zvětšit
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-orange-500 to-orange-600">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Líbí se vám naše práce?</h2>
+        <p class="text-xl text-white/90 mb-8">
+          Rádi realizujeme i váš projekt. Kontaktujte nás a domluvte si nezávaznou konzultaci.
+        </p>
+        <a href="/kontakty" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg hover:bg-slate-100 transition-colors">
+          <span>Objednat konzultaci</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
